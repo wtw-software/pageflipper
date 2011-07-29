@@ -1,7 +1,7 @@
 pageflipper
 =======
 
-A jquery plugin for creating a panel of pages the user can flip trough using either touch events or mouse events. It feels as smooth and responsive as flipping pages in a native touch app. It is especially designed for the iPad.
+A jquery plugin for creating a panel of pages the user can flippp trough using either touch events or mouse events. It feels as smooth and responsive as flipping pages in a native touch app. It is especially designed for the iPad and iPhone, but works well on a desktop. Not well tested on other touch devices yet.
 
 ## Usage
 Load the necessary javascript and css files:
@@ -57,5 +57,5 @@ The pageflipper needs a ul with a li pr page to work:
 
 Credits
 ------
-Inspiration and idea based on Christian Laverton's panelslider.
-Thanks to wtw software for opensourcing the plugin.
+Inspiration and some work based on Christian Laverton's panelslider.
+Thanks to wtw software for open-sourcing the plugin.
