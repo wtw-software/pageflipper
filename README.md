@@ -12,6 +12,7 @@ Load the necessary javascript and css files:
 ```
 
 Initialize the pageflipper on the wanted dom element:
+
 ```javascript
 $(document).ready(function() {
 
@@ -36,6 +37,7 @@ $(document).ready(function() {
 ```
 
 The pageflipper needs a ul with a li pr page to work:
+
 ```html
 <div id='pageflipper'>
    <ul>
