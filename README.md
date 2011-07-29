@@ -11,7 +11,7 @@ Load the necessary javascript and css files:
 <link rel="stylesheet" type="text/css" href="path/to/pageflipper.css"> 
 ```
 
-Initialize the pageflipper on the wanted dom element:
+Initialize the pageflipper on the wanted DOM element:
 
 ```javascript
 $(document).ready(function() {
@@ -31,7 +31,7 @@ $(document).ready(function() {
    $( '#page3' ).focus( function( ) {
       console.log( '#page3 in focus' );
       //Do ajax or whatever
-   } ;
+   });
 
 });
 ```
@@ -54,6 +54,19 @@ The pageflipper needs a ul with a li pr page to work:
 </div>
 ```
 
+### Options
+
+On initialization the pageflipper takes a object with options:
+
+```javascript
+$(document).ready(function() {
+
+   $( '#pageflipper' ).pageflipper({
+     page_transition_speed: 300 //measured in milliseconds, defaults to 320
+   });
+
+});
+```
 
 Credits
 ------
