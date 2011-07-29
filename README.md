@@ -5,45 +5,41 @@ Is a jquery plugin for creating a panel of pages the user can flip trough using 
 
 ### Quick Examples
 
-   <script type="text/javascript">
-      $(document).ready(function() {
+```javascript
+$(document).ready(function() {
 
-         $('#pageflipper').pageflipper();
+   $('#pageflipper').pageflipper();
 
-         $( '#page1' ).focus( function() {
-            console.log('#page1 in focus');
-         } );
+   $( '#page1' ).focus( function() {
+      console.log('#page1 in focus');
+   } );
 
-         $( '#page2' ).focus( function() {
-            console.log('#page2 in focus');
-         } );
+   $( '#page2' ).focus( function() {
+      console.log('#page2 in focus');
+   } );
 
-         $( '#page3' ).focus( function() {
-            console.log('#page3 in focus');
-         } );
+   $( '#page3' ).focus( function() {
+      console.log('#page3 in focus');
+   } );
 
-      });
+});
+```
 
-      
-   </script>
-    
-   <body>
-
-   <div id='pageflipper'>
-      <ul>
-         <li>
-            <p>Page 1</p>
-         </li>
-         <li>
-            <p>Page 2</p>
-         </li>
-         <li>
-            <p>Page 3</p>
-         </li>
-      </ul>
-   </div>
-
-   </body> 
+```html
+<div id='pageflipper'>
+   <ul>
+      <li>
+         <p>Page 1</p>
+      </li>
+      <li>
+         <p>Page 2</p>
+      </li>
+      <li>
+         <p>Page 3</p>
+      </li>
+   </ul>
+</div>
+```html
 
 
 Credits
