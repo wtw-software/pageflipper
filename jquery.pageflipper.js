@@ -206,6 +206,7 @@ function l (msg){
     var x = (this.$element.width() * this.currpage) * -1;
     this.transitionx( x );
     if( prevpage != this.currpage) {
+      $( this.$pages[prevpage] ).trigger( 'blur' ); 
       $( this.$pages[this.currpage] ).trigger( 'focus' ); 
     }
   };
@@ -216,6 +217,7 @@ function l (msg){
     var x = (this.$element.width() * this.currpage) * -1;
     this.transitionx( x );
     if( prevpage != this.currpage) {
+      $( this.$pages[prevpage] ).trigger( 'blur' );
       $( this.$pages[this.currpage] ).trigger( 'focus' ); 
     }
   };
@@ -228,6 +230,7 @@ function l (msg){
     var x = (this.$element.width() * this.currpage) * -1;
     this.transitionx( x );
     if( prevpage != this.currpage) {
+      $( this.$pages[prevpage] ).trigger( 'blur' );
       $( this.$pages[this.currpage] ).trigger( 'focus' ); 
     }
   };
