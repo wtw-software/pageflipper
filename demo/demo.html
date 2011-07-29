@@ -164,6 +164,18 @@
             console.log('#page3 in focus');
           } );
 
+          $( '#page1' ).blur( function() {
+            console.log('#page1 blurreds');
+          } );
+
+          $( '#page2' ).blur( function() {
+            console.log('#page2 blurred');
+          } );
+
+          $( '#page3' ).blur( function() {
+            console.log('#page3 blurred');
+          } );
+
           $( '#viewsource' ).bind(clickevent, function() {
             $( '#overlay' ).fadeIn(function() {
               $(this).bind(clickevent, function() {
