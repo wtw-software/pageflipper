@@ -185,7 +185,7 @@ function l (msg){
     var self = this;
     this.$pagepanel.css({
       '-webkit-transition-property': '-webkit-transform',
-      '-webkit-transition-duration': this.settings.flipspeed+'ms',
+      '-webkit-transition-duration': this.settings.page_transition_speed+'ms',
       '-webkit-transition-timing-function': 'cubic-bezier(0.0, 0.2, 0.58, 1.0)'
     })
     this.$pagepanel.css({
@@ -236,14 +236,11 @@ function l (msg){
   };
   
 
-  $.fn.pageflipper = function( method, options ) {
+  $.fn.pageflipper = function( method ) {
     
     var settings = {
-      flipspeed: 320
+      page_transition_speed: 320
     };
-    if( options && typeof options === 'object'){
-      $.extend( settings, options)
-    }
 
     var $this = this,
           _pageflipper = $this.data( 'pageflipper' );
@@ -252,6 +249,9 @@ function l (msg){
     var methods = {
       
       init: function() {
+        if( method && typeof method === 'object'){
+          $.extend( settings, method)
+        }
         if( !$this.data( 'pageflipper' ) ) {
           $this.data( 'pageflipper', new PageFlipper( $this, settings ) );
           _pageflipper = $this.data( 'pageflipper' )

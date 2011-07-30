@@ -150,7 +150,9 @@
               clickevent = 'touchstart';
           }
 
-          $('#pageflipper').pageflipper();
+          $('#pageflipper').pageflipper({
+            page_transition_speed: 1000
+          });
 
           $( '#page1' ).focus( function() {
             console.log('#page1 in focus');
