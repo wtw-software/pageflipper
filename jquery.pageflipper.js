@@ -206,7 +206,7 @@
       $( this ).css({
         '-webkit-transition': '',
       })
-      self.currx = x;;
+      self.currx = x;
       if( callback && typeof callback === 'function') callback()
     })
   };
