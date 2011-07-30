@@ -1,0 +1,29 @@
+
+
+.pagebuttonpanel {
+   background: rgba(253/253/253, 0.8);
+}
+
+.pagebutton {
+   background-color:rgba(10/10/10, 0.18);
+   background-image: -moz-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.18) 24%,rgba(10/10/10, 0.36) 108%);
+   background-image: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.18) 24%,rgba(10/10/10, 0.36) 108%);
+   background-image: -o-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.18) 24%,rgba(10/10/10, 0.36) 108%);
+   background-image: -ms-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.18) 24%,rgba(10/10/10, 0.36) 108%);
+   background-image: radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.18) 24%,rgba(10/10/10, 0.36) 108%);
+   border: 1px solid rgba(10/10/10, 0.35);
+   -webkit-border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
+   -o-border-radius: 5px 5px 5px 5px;
+   border-radius: 5px 5px 5px 5px;
+}
+
+.pagebutton.active {
+   background-color:rgba(10/10/10, 0.35);
+   background-image: -moz-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.35) 24%,rgba(10/10/10, 0.6) 108%);
+   background-image: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.35) 24%,rgba(10/10/10, 0.6) 108%);
+   background-image: -o-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.35) 24%,rgba(10/10/10, 0.6) 108%);
+   background-image: -ms-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.35) 24%,rgba(10/10/10, 0.6) 108%);
+   background-image: radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.35) 24%,rgba(10/10/10, 0.6) 108%);
+   border: 1px solid rgba(10/10/10, 0.35);
+}

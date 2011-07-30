@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="apple-touch-startup-image" href="startup.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="aple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+    
+    <title>Title</title> 
+    
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./jquery.pageflipper.js"></script>
+    <link rel="stylesheet" type="text/css" href="./pageflipper.css"> 
+    
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/css3buttons.css">
+    
+    
+    <style> 
+
+      @import url(http://fonts.googleapis.com/css?family=Bowlby+One+SC&v2);
+      @import url(http://fonts.googleapis.com/css?family=Rokkitt&v2);
+      html {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      a {
+        display: block !important;
+        position: relative !important;
+        font-family: arial;
+        width: 90px;
+        margin: 0px auto 0px auto !important;
+        text-align: center ;
+      }
+
+      #pageflipper {
+        width: 70%;
+        height: 85%;
+        margin: 10px auto 0px auto;
+      }
+
+      #page1{
+        background-color: rgba(10/10/10, 0.98);
+        background-image: url('./images/cover.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      #page1 h1 {
+        margin: 15px 0px 0px 10px;
+        font-size: 2em;
+        float: left;
+        color: white;
+        font-family: 'Bowlby One SC', sans-serif;
+      }
+      #page2{ 
+      
+      }
+
+      #page2 article{
+        margin: 0px auto 0px auto;
+        width: 300px;
+        color: rgba(15/15/15, 0.9);
+        font-size: 1.1em;
+        line-height: 1.8em;
+        font-family: 'Rokkitt', serif;
+      }
+      #page3{ 
+
+      }
+      #page3 #forkandsoruce{
+        margin: 40px auto 0px auto;
+        width: 110px;
+        padding: 10px;
+        background: rgba(238, 238, 238, 0.4);
+        border: 1px solid rgba(238, 238, 238, 0.7);
+        -webkit-border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        -o-border-radius: 3px 3px 3px 3px;
+        border-radius: 3px 3px 3px 3px;
+      }
+
+      #overlay {
+        position: fixed;
+        display: none;
+        z-index: 1000;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background: -webkit-gradient(radial, center center, 0, center center, 700, from(rgba(20/20/20, 0.8)), to(rgba(20/20/20, 0.9)));
+      }
+
+      #source{
+        background: #FAFAFA;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        -o-border-radius: 3px 3px 3px 3px;
+        border-radius: 3px 3px 3px 3px;
+        width: 245px;
+        margin: 10% auto 0% auto;
+        padding: 30px;
+      }
+      #source pre{
+        margin: 0% auto 0% auto;
+        font-family: arial;
+        font-size: 13px;
+        color: #3D3D3D;
+      }
+
+      .function {
+        color: #DE6B18;
+      }
+      .namespace  {
+        color: #F2AE2E;
+      }
+      .string {
+        color: #74965F;
+      }
+      .comment {
+        color: #80AB8B;
+      }
+
+    </style>
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+          
+          var clickevent = 'click';
+          if( navigator.userAgent.match(/Android/i) ||
+             navigator.userAgent.match(/webOS/i) ||
+             navigator.userAgent.match(/iPhone/i) ||
+             navigator.userAgent.match(/iPod/i) ||
+             navigator.userAgent.match(/iPad/i)
+             ){
+             $('#pageflipper').css({
+               height: '100%',
+               width: '100%',
+               margin: '0px 0px 0px 0px'
+             })
+              clickevent = 'touchstart';
+          }
+
+          $('#pageflipper').pageflipper();
+
+          $( '#page1' ).focus( function() {
+            console.log('#page1 in focus');
+          } );
+
+          $( '#page2' ).focus( function() {
+            console.log('#page2 in focus');
+          } );
+
+          $( '#page3' ).focus( function() {
+            console.log('#page3 in focus');
+          } );
+
+          $( '#viewsource' ).bind(clickevent, function() {
+            $( '#overlay' ).fadeIn(function() {
+              $(this).bind(clickevent, function() {
+                $(this).fadeOut();
+              })
+            });
+          })
+
+      });
+
+      
+    </script>
+    
+
+    </head>
+    
+    <body>
+      
+      <div id="overlay">
+        
+          <div id="source">
+            <pre>
+      <span class='function'>$</span>(<span class='string'>'#pageflipper'</span>).pageflipper(); 
+      <span class='comment'>//Contains ul with a li pr page<span>
+
+      <span class='function'>$</span>( <span class='string'>'#page1' </span>).<span class='namespace'>focus</span>( <span class='function'>function</span>() {
+        <span class='comment'>//focushandler for #page3</span>
+        <span class='comment'>//Here you can do ajax or whatever</span>
+      } )
+
+      <span class='function'>$</span>( <span class='string'>'#page2'</span> ).<span class='namespace'>focus</span>( <span class='function'>function</span>() {
+        <span class='comment'>//focushandler for #page3</span>
+        <span class='comment'>//Here you can do ajax or whatever</span>
+      } )
+
+      <span class='function'>$</span>( <span class='string'>'#page3' </span>).<span class='namespace'>focus</span>( <span class='function'>function</span>() {
+        <span class='comment'>//focushandler for #page3 </span>
+        <span class='comment'>//Here you can do ajax or whatever</span>
+      } )
+            </pre>
+          </div>
+
+      </div>
+
+      <div id='pageflipper'>
+        <ul id='pagepanel'>
+          <li id='page1'>
+            <h1>What strippers and zombies share in common</h1>
+          </li>
+          <li id='page2'>
+            <article>
+              <br/>
+              ...is gonna tease you<br/>
+              with her sock tease.<br/>
+              All right, all right.<br/>
+              What the hell's going on out here?<br/>
+              Dude, that guy's dead.<br/>
+              Oh, he's okay.<br/>
+              - Where the fuck's Paco?<br/>
+              - Dog, I'm right here.<br/>
+              Clean this mess up, would you?<br/>
+              All right?<br/>
+              I'm only two of me.<br/>
+              Remember the Alamo. Davy Crockett.<br/>
+              - Whatever.<br/>
+              - Yeah.<br/>
+              Knocked up.<br/>
+              I remember when I was once star.<br/>
+              Young stripper with dream.<br/>
+            </article>
+          </li>
+          <li id='page3'>
+            <div id="forkandsoruce">
+              <a id="forkme"  class="button"><span class="fork icon"></span>Fork me</a>
+              <br>
+              <a id="viewsource"  class="button"><span class="cog icon"></span>Source</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </body> 
+  
+</html>
