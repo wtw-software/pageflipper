@@ -9,9 +9,9 @@
 
 (function( $ ) {
 
-  // pageflipper object, stored in pageflipper main dom.
-  // pageflipper.$element.data('pageflipper')
+  // pageflipper object, stored in pageflipper main element.data('pageflipper')
   var PageFlipper = function( element, settings ) {
+
     var self = this;
     this.$element = $( element );
     this.$pagepanel = this.$element.find( 'ul:first' ),
@@ -23,7 +23,6 @@
     this.pagewidth = this.$element.width();
     this.currpage = 0;
     this.currx = 0;
-    
 
     // pageflipper css setup
     this.$element.css({
@@ -44,7 +43,8 @@
     });
 
     // init buttons
-    this.buttons = (function() {
+    if(this.settings.buttonator){
+      this.buttons = (function() {
       
       var $buttonpanel = $( (function() {
         var _panel = $( "<div></div>")
@@ -102,7 +102,8 @@
         });
         
         $($buttons[0] ).addClass('active');
-    })();
+      })(); 
+    }
     
     // closure for binding flipp events
     (function() {
@@ -205,7 +206,7 @@
       $( this ).css({
         '-webkit-transition': '',
       })
-      self.currx = x;
+      self.currx = x;;
       if( callback && typeof callback === 'function') callback()
     })
   };
@@ -249,7 +250,8 @@
   $.fn.pageflipper = function( method ) {
     
     var settings = {
-      page_transition_speed: 320
+      page_transition_speed: 320,
+      buttonator: true
     };
 
     var $this = this,
