@@ -1,5 +1,4 @@
 
-
 .pagebuttonpanel {
    background: rgba(253/253/253, 0.8);
 }
@@ -26,4 +25,9 @@
    background-image: -ms-radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.35) 24%,rgba(10/10/10, 0.6) 108%);
    background-image: radial-gradient(50% 50%, ellipse closest-side, rgba(10/10/10, 0.35) 24%,rgba(10/10/10, 0.6) 108%);
    border: 1px solid rgba(10/10/10, 0.35);
+}
+
+.pageflippertransition {
+   -webkit-transition-property: -webkit-transform;
+   -webkit-transition-timing-function: cubic-bezier(0,0,0.58,1);
 }

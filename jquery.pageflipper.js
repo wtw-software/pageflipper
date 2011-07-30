@@ -1,11 +1,17 @@
-function l (msg){
-  console.log(msg);
-}
+
+/*
+  * pageflipper, jQuery plugin
+  *
+  * @version:  0.2.B beta
+  * @description: A plugin for making a pageflipper where the user can flip trough 
+  * pages using either touch or mouse events
+  */
 
 (function( $ ) {
 
-
+  // pageflipper object, stored in pageflipper main element.data('pageflipper')
   var PageFlipper = function( element, settings ) {
+
     var self = this;
     this.$element = $( element );
     this.$pagepanel = this.$element.find( 'ul:first' ),
@@ -17,8 +23,8 @@ function l (msg){
     this.pagewidth = this.$element.width();
     this.currpage = 0;
     this.currx = 0;
-    
 
+    // pageflipper css setup
     this.$element.css({
       'overflow': 'hidden'
     });
@@ -36,7 +42,9 @@ function l (msg){
       })
     });
 
-    this.buttons = (function() {
+    // init buttons
+    if(this.settings.buttonator){
+      this.buttons = (function() {
       
       var $buttonpanel = $( (function() {
         var _panel = $( "<div></div>")
@@ -94,9 +102,10 @@ function l (msg){
         });
         
         $($buttons[0] ).addClass('active');
-    })();
+      })(); 
+    }
     
-    //closure for binding flipp
+    // closure for binding flipp events
     (function() {
       var pageprevx = 0;
       var touchstartx;
@@ -174,6 +183,7 @@ function l (msg){
 
   }
 
+  //sets the x axis offset of the pagepanel
   PageFlipper.prototype.setx = function( x ) {
     this.$pagepanel.css({
       '-webkit-transform': 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ' + x + ', 0, 0, 1)',
@@ -181,23 +191,33 @@ function l (msg){
     this.currx = x;
   };
 
+  //transitions the x axis offset of the pagepanel
   PageFlipper.prototype.transitionx = function( x, callback ) {
     var self = this;
-    this.$pagepanel.css({
-      '-webkit-transition-property': '-webkit-transform',
-      '-webkit-transition-duration': this.settings.flipspeed+'ms',
-      '-webkit-transition-timing-function': 'cubic-bezier(0.0, 0.2, 0.58, 1.0)'
-    })
-    this.$pagepanel.css({
-      '-webkit-transform': 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ' + x + ', 0, 0, 1)',
-    })
-    this.$pagepanel.bind('webkitTransitionEnd', function( event ) {
-      $( this ).css({
-        '-webkit-transition': '',
+    this.$pagepanel
+      .addClass('pageflippertransition')
+      .css({
+        '-webkit-transition-duration': self.settings.page_transition_speed+'ms'
       })
-      self.currx = x;
-      if( callback && typeof callback === 'function') callback()
-    })
+      .css({
+        '-webkit-transform': 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ' + x + ', 0, 0, 1)',
+      })
+      .bind({
+        'webkitTransitionEnd': function( event ) {
+          $( this ).css({
+            '-webkit-transition': '',
+          })
+          self.currx = x;
+          if( callback && typeof callback === 'function') callback()
+        },
+        'transitionend': function( event ) {
+          $( this ).css({
+            '-webkit-transition': '',
+          })
+          self.currx = x;
+          if( callback && typeof callback === 'function') callback()
+        }
+      })
   };
 
   PageFlipper.prototype.flipleft = function() {
@@ -206,6 +226,7 @@ function l (msg){
     var x = (this.$element.width() * this.currpage) * -1;
     this.transitionx( x );
     if( prevpage != this.currpage) {
+      $( this.$pages[prevpage] ).trigger( 'blur' ); 
       $( this.$pages[this.currpage] ).trigger( 'focus' ); 
     }
   };
@@ -216,6 +237,7 @@ function l (msg){
     var x = (this.$element.width() * this.currpage) * -1;
     this.transitionx( x );
     if( prevpage != this.currpage) {
+      $( this.$pages[prevpage] ).trigger( 'blur' );
       $( this.$pages[this.currpage] ).trigger( 'focus' ); 
     }
   };
@@ -228,19 +250,18 @@ function l (msg){
     var x = (this.$element.width() * this.currpage) * -1;
     this.transitionx( x );
     if( prevpage != this.currpage) {
+      $( this.$pages[prevpage] ).trigger( 'blur' );
       $( this.$pages[this.currpage] ).trigger( 'focus' ); 
     }
   };
   
 
-  $.fn.pageflipper = function( method, options ) {
+  $.fn.pageflipper = function( method ) {
     
     var settings = {
-      flipspeed: 320
+      page_transition_speed: 320,
+      buttonator: true
     };
-    if( options && typeof options === 'object'){
-      $.extend( settings, options)
-    }
 
     var $this = this,
           _pageflipper = $this.data( 'pageflipper' );
@@ -249,6 +270,9 @@ function l (msg){
     var methods = {
       
       init: function() {
+        if( method && typeof method === 'object'){
+          $.extend( settings, method)
+        }
         if( !$this.data( 'pageflipper' ) ) {
           $this.data( 'pageflipper', new PageFlipper( $this, settings ) );
           _pageflipper = $this.data( 'pageflipper' )
@@ -257,17 +281,17 @@ function l (msg){
       },
       
       flipleft: function() {
-        _pageflipper.flipleft(); //TODO!: Using this method will break the touch/mouse events closure
+        _pageflipper.flipleft(); 
         return this;
       },
 
       flipright: function() {
-        _pageflipper.flipright(); //TODO!: Using this method will break the touch/mouse events closure
+        _pageflipper.flipright(); 
         return this;
       },
 
       flipto: function( pindex ) {
-        _pageflipper.flipto( pindex ); //TODO!: Using this method will break the touch/mouse events closure
+        _pageflipper.flipto( pindex ); 
         return this;
       },
 
@@ -290,23 +314,4 @@ function l (msg){
   };
 
 })( jQuery );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
