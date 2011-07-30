@@ -1,7 +1,7 @@
 pageflipper
 =======
 
-A jquery plugin for creating a panel of pages the user can flippp trough using either touch events or mouse events. It feels as smooth and responsive as flipping pages in a native touch app. It is especially designed for the iPad and iPhone, but works well on a desktop. Not well tested on other touch devices yet.
+A jQuery plugin for creating a panel of pages the user can flipp through using either touch events or mouse events. It feels as smooth and responsive as flipping pages in a native touch app. It is especially designed for the iPad and iPhone, but works well on a desktop. Not well tested on other touch devices yet.
 
 ## Usage
 Load the necessary javascript and css files:
@@ -11,7 +11,7 @@ Load the necessary javascript and css files:
 <link rel="stylesheet" type="text/css" href="path/to/pageflipper.css"> 
 ```
 
-Initialize the pageflipper on the wanted dom element:
+Initialize the pageflipper on the wanted DOM element:
 
 ```javascript
 $(document).ready(function() {
@@ -31,7 +31,7 @@ $(document).ready(function() {
    $( '#page3' ).focus( function( ) {
       console.log( '#page3 in focus' );
       //Do ajax or whatever
-   } ;
+   });
 
 });
 ```
@@ -54,6 +54,19 @@ The pageflipper needs a ul with a li pr page to work:
 </div>
 ```
 
+### Options
+
+On initialization the pageflipper takes a object with options:
+
+```javascript
+$(document).ready(function() {
+
+   $( '#pageflipper' ).pageflipper({
+     page_transition_speed: 300 //measured in milliseconds, defaults to 320
+   });
+
+});
+```
 
 Credits
 ------
