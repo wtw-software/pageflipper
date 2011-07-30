@@ -1,10 +1,16 @@
-function l (msg){
-  console.log(msg);
-}
+
+/*
+  * pageflipper, jQuery plugin
+  *
+  * @version:  0.0.2 beta
+  * @description: A plugin for making a pageflipper where the user can flip trough 
+  * pages using either touch or mouse events
+  */
 
 (function( $ ) {
 
-
+  // pageflipper object, stored in pageflipper main dom.
+  // pageflipper.$element.data('pageflipper')
   var PageFlipper = function( element, settings ) {
     var self = this;
     this.$element = $( element );
@@ -19,6 +25,7 @@ function l (msg){
     this.currx = 0;
     
 
+    // pageflipper css setup
     this.$element.css({
       'overflow': 'hidden'
     });
@@ -36,6 +43,7 @@ function l (msg){
       })
     });
 
+    // init buttons
     this.buttons = (function() {
       
       var $buttonpanel = $( (function() {
@@ -96,7 +104,7 @@ function l (msg){
         $($buttons[0] ).addClass('active');
     })();
     
-    //closure for binding flipp
+    // closure for binding flipp events
     (function() {
       var pageprevx = 0;
       var touchstartx;
@@ -174,6 +182,7 @@ function l (msg){
 
   }
 
+  //sets the x axis offset of the pagepanel
   PageFlipper.prototype.setx = function( x ) {
     this.$pagepanel.css({
       '-webkit-transform': 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ' + x + ', 0, 0, 1)',
@@ -181,6 +190,7 @@ function l (msg){
     this.currx = x;
   };
 
+  //transitions the x axis offset of the pagepanel
   PageFlipper.prototype.transitionx = function( x, callback ) {
     var self = this;
     this.$pagepanel.css({
@@ -260,17 +270,17 @@ function l (msg){
       },
       
       flipleft: function() {
-        _pageflipper.flipleft(); //TODO!: Using this method will break the touch/mouse events closure
+        _pageflipper.flipleft(); 
         return this;
       },
 
       flipright: function() {
-        _pageflipper.flipright(); //TODO!: Using this method will break the touch/mouse events closure
+        _pageflipper.flipright(); 
         return this;
       },
 
       flipto: function( pindex ) {
-        _pageflipper.flipto( pindex ); //TODO!: Using this method will break the touch/mouse events closure
+        _pageflipper.flipto( pindex ); 
         return this;
       },
 
@@ -293,23 +303,4 @@ function l (msg){
   };
 
 })( jQuery );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
