@@ -194,21 +194,21 @@
   //transitions the x axis offset of the pagepanel
   PageFlipper.prototype.transitionx = function( x, callback ) {
     var self = this;
-    this.$pagepanel.css({
-      '-webkit-transition-property': '-webkit-transform',
-      '-webkit-transition-duration': this.settings.page_transition_speed+'ms',
-      '-webkit-transition-timing-function': 'cubic-bezier(0.0, 0.2, 0.58, 1.0)'
-    })
-    this.$pagepanel.css({
-      '-webkit-transform': 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ' + x + ', 0, 0, 1)',
-    })
-    this.$pagepanel.bind('webkitTransitionEnd', function( event ) {
-      $( this ).css({
-        '-webkit-transition': '',
+    this.$pagepanel
+      .addClass('pageflippertransition')
+      .css({
+        '-webkit-transition-duration': self.settings.page_transition_speed+'ms'
       })
-      self.currx = x;
-      if( callback && typeof callback === 'function') callback()
-    })
+      .css({
+        '-webkit-transform': 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ' + x + ', 0, 0, 1)',
+      })
+      .bind('webkitTransitionEnd', function( event ) {
+        $( this ).css({
+          '-webkit-transition': '',
+        })
+        self.currx = x;
+        if( callback && typeof callback === 'function') callback()
+      })
   };
 
   PageFlipper.prototype.flipleft = function() {
