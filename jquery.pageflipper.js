@@ -2,7 +2,7 @@
 /*
   * pageflipper, jQuery plugin
   *
-  * @version:  0.0.2 beta
+  * @version:  0.2.B beta
   * @description: A plugin for making a pageflipper where the user can flip trough 
   * pages using either touch or mouse events
   */
@@ -202,12 +202,21 @@
       .css({
         '-webkit-transform': 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ' + x + ', 0, 0, 1)',
       })
-      .bind('webkitTransitionEnd', function( event ) {
-        $( this ).css({
-          '-webkit-transition': '',
-        })
-        self.currx = x;
-        if( callback && typeof callback === 'function') callback()
+      .bind({
+        'webkitTransitionEnd': function( event ) {
+          $( this ).css({
+            '-webkit-transition': '',
+          })
+          self.currx = x;
+          if( callback && typeof callback === 'function') callback()
+        },
+        'transitionend': function( event ) {
+          $( this ).css({
+            '-webkit-transition': '',
+          })
+          self.currx = x;
+          if( callback && typeof callback === 'function') callback()
+        }
       })
   };
 
