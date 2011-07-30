@@ -62,7 +62,8 @@ On initialization the pageflipper takes a object with options:
 $(document).ready(function() {
 
    $( '#pageflipper' ).pageflipper({
-     page_transition_speed: 300 //measured in milliseconds, defaults to 320
+     page_transition_speed: 300, //measured in milliseconds, defaults to 320
+     buttonator: true //determines if the buttons at the bottom is enabled, defaults to true
    });
 
 });
