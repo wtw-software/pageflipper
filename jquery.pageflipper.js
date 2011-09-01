@@ -20,9 +20,12 @@
     this.settings = settings;
 
     this.nrofpages = this.$pages.length;
-    this.pagewidth = this.$element.width();
+    this.pagewidth = $(this.$pages[0]).outerWidth();
     this.currpage = 0;
     this.currx = 0;
+
+    this.xmin = ((self.nrofpages-1) * self.pagewidth) *-1;
+    this.xmax = 1;
 
     // pageflipper css setup
     this.$element.css({
@@ -125,9 +128,19 @@
           var touchcurrx = event.targetTouches[0].pageX;
           if( touchcurrx > touchprevx ) {
             movedx = touchprevx - touchcurrx;
+            if(self.currx > self.xmax) {
+              movedx = movedx*0.3;
+            } else if(self.currx < self.xmin) {
+              movedx = movedx*0.3;
+            }
             self.currx -= movedx;
           } else if( touchcurrx < touchprevx ) {
             movedx = touchprevx - touchcurrx;
+            if(self.currx > self.xmax) {
+              movedx = movedx*0.3;
+            } else if(self.currx < self.xmin) {
+              movedx = movedx*0.3;
+            }
             self.currx -= movedx;
           }
           touchprevx = touchcurrx;
@@ -157,9 +170,19 @@
             var touchcurrx = event.pageX;
             if( touchcurrx > touchprevx ) {
               movedx = touchprevx - touchcurrx;
+              if(self.currx > self.xmax) {
+                movedx = movedx*0.3;
+              } else if(self.currx < self.xmin) {
+                movedx = movedx*0.3;
+              }
               self.currx -= movedx;
             } else if( touchcurrx < touchprevx ) {
               movedx = touchprevx - touchcurrx;
+              if(self.currx > self.xmax) {
+                movedx = movedx*0.3;
+              } else if(self.currx < self.xmin) {
+                movedx = movedx*0.3;
+              }
               self.currx -= movedx;
             }
             touchprevx = touchcurrx;
