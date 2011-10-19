@@ -54,6 +54,17 @@ The pageflipper needs a ul with a li pr page to work:
 </div>
 ```
 
+### Api
+
+The pageflipper exposes a simple api for manipulating the pageflipper programmatically:
+
+```javascript
+$( '#pageflipper' ).flipleft() // flips one page to the left
+$( '#pageflipper' ).flipright() // flips one page to the right
+$( '#pageflipper' ).flipto(3) // flips to the desired page
+```
+
+
 ### Options
 
 On initialization the pageflipper takes a object with options:
