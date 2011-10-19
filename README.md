@@ -60,8 +60,11 @@ The pageflipper exposes a simple api for manipulating the pageflipper programmat
 
 ```javascript
 $( '#pageflipper' ).flipleft() // flips one page to the left
+
 $( '#pageflipper' ).flipright() // flips one page to the right
+
 $( '#pageflipper' ).flipto(3) // flips to the desired page
+
 ```
 
 
