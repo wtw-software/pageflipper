@@ -86,5 +86,31 @@ $(document).ready(function() {
 Credits
 ------
 Inspiration and some work based on Christian Laverton's panelslider.
-Thanks to wtw software for open-sourcing the plugin.
+Thanks to wtw software for open-sourcing the plugin.  
 
+  
+License
+-------
+Pageflipper sues a modified version of the MIT license.
+```
+Copyright (C) 2011 by wtw-software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+with the software, with the following rights:  
+use, copy, modify, merge, publish, and distribute copies of the Software, and 
+to permit persons to whom the Software is furnished to do so, subject to the conditions listed below.
+Note that the software can not be sold "as is", but distributed with and for use in other software is permitted.
+
+Conditions:  
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+```
