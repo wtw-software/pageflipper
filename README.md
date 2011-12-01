@@ -91,7 +91,8 @@ Thanks to wtw software for open-sourcing the plugin.
   
 License
 -------
-Pageflipper sues a modified version of the MIT license.
+Pageflipper sues a modified version of the MIT license.  
+  
 ```
 Copyright (C) 2011 by wtw-software
 
