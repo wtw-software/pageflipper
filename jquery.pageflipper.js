@@ -25,6 +25,9 @@
 
     this.xmin = ((self.nrofpages-1) * self.pagewidth) *-1;
     this.xmax = 1;
+    
+    this.buttonsize = 8;
+    this.blocksize = this.buttonsize * (this.buttonsize/2);
 
     // pageflipper css setup
     this.$element.css({
@@ -52,7 +55,7 @@
         var _panel = $( "<div></div>")
           .append( $( '<ul></ul>' )
             .css({
-              width: 4*self.nrofpages+'%',
+              width: self.blocksize*self.nrofpages+'px',
               margin: '0px auto 0px auto'
             })
         );
@@ -67,8 +70,8 @@
             .append( $( '<div></div>' )
               .addClass( 'pagebutton' )
               .css({
-                'height': '8px',
-                'width': '8px',
+                'height': self.buttonsize+'px',
+                'width': self.buttonsize+'px',
                 'margin': '0px auto 0px auto'
               })
             )
