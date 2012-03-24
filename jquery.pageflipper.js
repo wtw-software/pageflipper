@@ -117,6 +117,11 @@
       var touchprevx;
       var mousedown = false;
       self.$pagepanel.bind({
+       
+        orientationchange: function( e ) {
+          e.preventDefault();
+          self.flipto(self.currpage);
+        },
         
         touchstart: function( e ) {
           e.preventDefault();
