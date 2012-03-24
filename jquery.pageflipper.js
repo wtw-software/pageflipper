@@ -1,4 +1,3 @@
-
 /*
   * pageflipper, jQuery plugin
   *
@@ -81,10 +80,10 @@
         .css({
           display: 'block',
           position: 'relative',
-          height: '4%',
+          height: '18px',
           width: '100%',
           'z-index': '100',
-          bottom: '4%',
+          bottom: '18px',
           margin: '0px auto 0px auto'
         })
         .appendTo(self.$element);
