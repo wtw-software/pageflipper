@@ -116,8 +116,28 @@
       var touchstartx;
       var touchprevx;
       var mousedown = false;
+
+      $(document).bind({
+          keydown: function(e){
+              switch(e.keyCode){
+                  case 37:
+                      self.flipleft();
+                      break;
+                  case 38:
+                      self.flipto(0);
+                      break;
+                  case 39:
+                      self.flipright();
+                      break;
+                  case 40:
+                      self.flipto(self.nrofpages-1);
+                      break;
+              }
+          }
+      });
+
       self.$pagepanel.bind({
-       
+
         orientationchange: function( e ) {
           e.preventDefault();
           self.flipto(self.currpage);
