@@ -100,7 +100,7 @@
         });
 
         self.$pages.each(function( index ) {
-          $( this ).focus( function() {
+          $( this ).focus(function() {
             $buttons.removeClass( 'active' );
             $ ($buttons[index] ).addClass('active');
           });
@@ -124,6 +124,9 @@
         },
         
         touchstart: function( e ) {
+          if (e.target.tagName.match(/input|textarea|select/i)) {
+            return;
+          };
           e.preventDefault();
           touchprevx = event.targetTouches[0].pageX;
           touchstartx = touchprevx;
@@ -155,6 +158,9 @@
         },
         
         touchend: function( e ) {
+          if (e.target.tagName.match(/input|textarea|select/i)) {
+            return;
+          };
           e.preventDefault();
           if( touchprevx < touchstartx ) {
             self.flipright();
@@ -164,6 +170,9 @@
         },
         
         mousedown: function( e ) {
+          if (e.target.tagName.match(/input|textarea|select/i)) {
+            return;
+          };
           e.preventDefault();
           touchprevx = event.pageX;
           touchstartx = touchprevx;
@@ -198,6 +207,9 @@
         },
         
         mouseup: function( e ) {
+          if (e.target.tagName.match(/input|textarea|select/i)) {
+            return;
+          };
           e.preventDefault();
           if( touchprevx < touchstartx ) {
             self.flipright();
